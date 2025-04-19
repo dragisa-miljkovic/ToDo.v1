@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/naslov_zadatka_labela" />
+    <EditText
+        android:id="@+id/naslov_zadatka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/naslov_zadatka_hint"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline5"
+        android:text="@string/detalji_zadatka_labela" />
+    <Button
+        android:id="@+id/datum_zadatka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Wed Apr 16th 10:00:00 CET 2025" />
+    <CheckBox
+        android:id="@+id/zadatak_resen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/zadatak_resen_labela" />
+</LinearLayout>
+
+
