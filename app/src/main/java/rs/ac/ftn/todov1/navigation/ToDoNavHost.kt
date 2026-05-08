@@ -34,18 +34,18 @@ fun ToDoNavHost() {
         }
 
         composable(ToDoRoutes.NOVI) {
-            var detailsState by remember {
+            var detaljiStanje by remember {
                 mutableStateOf(DetaljiZadatkaUiState())
             }
             DetaljiZadatkaScreen(
-                uiState = detailsState,
+                uiState = detaljiStanje,
                 onNazadClick = { navController.navigateUp() },
-                onNaslovChange = { detailsState = detailsState.copy(naslov = it) },
-                onOpisChange = { detailsState = detailsState.copy(opis = it) },
-                onResenChange = { detailsState = detailsState.copy(daLiJeResen = it) },
+                onNaslovChange = { detaljiStanje = detaljiStanje.copy(naslov = it) },
+                onOpisChange = { detaljiStanje = detaljiStanje.copy(opis = it) },
+                onResenChange = { detaljiStanje = detaljiStanje.copy(daLiJeResen = it) },
                 onSacuvajClick = {
-                    viewModel.sacuvaj(detailsState)
-                    detailsState = DetaljiZadatkaUiState()
+                    viewModel.sacuvaj(detaljiStanje)
+                    detaljiStanje = DetaljiZadatkaUiState()
                     navController.navigateUp()
                 },
                 onObrisiClick = {
@@ -60,7 +60,7 @@ fun ToDoNavHost() {
         ) { entry ->
             val zadatakId = entry.arguments?.getString("zadatakId").orEmpty()
             val zadatak = viewModel.nadjiZadatak(zadatakId)
-            var detailsState by remember(zadatakId, zadatak) {
+            var detaljiStanje by remember(zadatakId, zadatak) {
                 mutableStateOf(
                     DetaljiZadatkaUiState(
                         id = zadatak?.id,
@@ -72,17 +72,17 @@ fun ToDoNavHost() {
             }
 
             DetaljiZadatkaScreen(
-                uiState = detailsState,
+                uiState = detaljiStanje,
                 onNazadClick = { navController.navigateUp() },
-                onNaslovChange = { detailsState = detailsState.copy(naslov = it) },
-                onOpisChange = { detailsState = detailsState.copy(opis = it) },
-                onResenChange = { detailsState = detailsState.copy(daLiJeResen = it) },
+                onNaslovChange = { detaljiStanje = detaljiStanje.copy(naslov = it) },
+                onOpisChange = { detaljiStanje = detaljiStanje.copy(opis = it) },
+                onResenChange = { detaljiStanje = detaljiStanje.copy(daLiJeResen = it) },
                 onSacuvajClick = {
-                    viewModel.sacuvaj(detailsState)
+                    viewModel.sacuvaj(detaljiStanje)
                     navController.navigateUp()
                 },
                 onObrisiClick = {
-                    detailsState.id?.let { viewModel.obrisi(it) }
+                    detaljiStanje.id?.let { viewModel.obrisi(it) }
                     navController.navigateUp()
                 }
             )
